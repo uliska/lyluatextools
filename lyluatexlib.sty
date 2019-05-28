@@ -1,0 +1,20 @@
+% lyluatexlib support package
+%
+% Copyright (C) 2015-2019 jperon and others (see CONTRIBUTORS.md)
+% License: MIT
+% This file is part of lyluatex.
+
+\NeedsTeXFormat{LaTeX2e}%
+\ProvidesPackage{lyluatexlib}[2019/05/27 v1.0]  %%LYLUATEX_DATE LYLUATEX_VERSION
+
+% Dependencies
+\RequirePackage{luatexbase}
+\RequirePackage{luaotfload}
+
+\catcode`-=11
+\directlua{
+  lyluatex_lib = require(
+    kpse.find_file("lyluatex-lib.lua") or "lyluatex-lib.lua"
+  )
+}
+\catcode`-=12
